@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="columns">
+    <div class="column">
+      <figure class="image">
+        <img src="<%= program.image %>" alt="<%= program.name %>">
+      </figure>
+    </div>
+    <div class="column">
+      <h3 class="title"><%= program.name %></h3>
+      <h4 class="subtitle"><%= program.level %></h4>
+      <div class="icon is-small">
+        <i class="fa fa-pencil"></i>
+      </div>
+      <p><%= program.level %></p>
+      <% if (program.user) { %>
+      <p>Added by: <strong><%= program.user.username %></strong></p>
+      <% } %>
+      <br>
+      <% if(locals.isAuthenticated && cheese.user && cheese.user.id === locals.currentUser.id) { %>
+      <form method="POST" action="/cheeses/<%= cheese.id %>">
+        <input type="hidden" name="_method" value="DELETE">
+        <a class="button is-primary" href="/cheeses/<%= cheese.id %>/edit">Edit</a>
+        <button class="button is-danger">Delete</button>
+      </form>
+      <% } %>
+    </div>
+  </div>
+</div>
