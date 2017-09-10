@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const liftSchema = new mongoose.Schema({
-  text: String
-
+  lift: String,
+  level: String
 });
 
-module.exports = mongoose.model('Review', liftSchema);
+module.exports = mongoose.model('Lift', liftSchema);

@@ -13,14 +13,14 @@
   </div>
   <div id="mobile-menu" class="navbar-menu">
     <div class="navbar-end">
-      <a class="navbar-item" href="/cheeses">All Programs</a>
+      <a class="navbar-item" href="/programs">All Programs</a>
       <% if(!locals.isAuthenticated) { %>
-        <a class="navbar-item" href="/register">Register</a>
+        <%# <a class="navbar-item" href="/register">Register</a>
         <a class="navbar-item" href="/login">Login</a>
       <% } else { %>
-        <a class="navbar-item" href="/logout">Logout</a>
-        <a class="navbar-item" href="/cheeses/new">New Cheese</a>
+        <%# <a class="navbar-item" href="/logout">Logout</a>
+        <a class="navbar-item" href="/programs/new">Add a Program</a>
         <% } %>
-    </div>
+    <%# </div>
   </div>
 </nav>

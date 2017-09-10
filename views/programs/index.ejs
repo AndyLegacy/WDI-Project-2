@@ -1,9 +1,9 @@
 <h1>Program Index</h1>
 
-<% programs.forEach(film => { %>
+<% programs.forEach(program => { %>
   <h2>
   <a href="/programs/<%= program.id%>"<%= program.name %></a>
   </h2>
   <p><%= program.level %></p>
-  <p><%= program.duration %>mins</p>
+  <p><%= program.duration %></p>
 <% }) %>
