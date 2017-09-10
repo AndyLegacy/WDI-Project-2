@@ -16,10 +16,10 @@
       <p>Added by: <strong><%= program.user.username %></strong></p>
       <% } %>
       <br>
-      <% if(locals.isAuthenticated && cheese.user && cheese.user.id === locals.currentUser.id) { %>
-      <form method="POST" action="/cheeses/<%= cheese.id %>">
+      <% if(locals.isAuthenticated && program.user && program.user.id === locals.currentUser.id) { %>
+      <form method="POST" action="/cheeses/<%= program.id %>">
         <input type="hidden" name="_method" value="DELETE">
-        <a class="button is-primary" href="/cheeses/<%= cheese.id %>/edit">Edit</a>
+        <a class="button is-primary" href="/cheeses/<%= program.id %>/edit">Edit</a>
         <button class="button is-danger">Delete</button>
       </form>
       <% } %>
