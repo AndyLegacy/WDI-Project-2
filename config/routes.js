@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const registrations = require('../controllers/registrations');
 const programs = require('../controllers/programs');
-const secureRoute = require('../lib/secureRoute');
+// const secureRoute = require('../lib/secureRoute');
 const sessions = require('../controllers/sessions');
 
 
@@ -9,19 +9,19 @@ const sessions = require('../controllers/sessions');
 router.get('/', (req, res) => res.render('home', { isHomepage: true }));
 
 router.route('/programs')
-  .get(secureRoute, programs.index)
-  .post(secureRoute, programs.create);
+  .get(programs.index)
+  .post(programs.create);
 
 router.route('/programs/new')
-  .get(secureRoute, programs.new);
+  .get(programs.new);
 
 router.route('/programs/:id')
-  .get(secureRoute, programs.show)
-  .put(secureRoute, programs.update)
-  .delete(secureRoute, programs.delete);
+  .get(programs.show)
+  .put(programs.update)
+  .delete(programs.delete);
 
 router.route('/programs/:id/edit')
-  .get(secureRoute, programs.edit);
+  .get(programs.edit);
 
 router.route('/register')
   .get(registrations.new)

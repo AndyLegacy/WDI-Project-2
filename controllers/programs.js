@@ -1,8 +1,10 @@
-const Program = require('../models/programs');
+const Program = require('../models/program');
+const Lift = require('../models/lift');
 
 function programsIndex(req, res) {
   Program
     .find()
+    .populate('lift')
     .exec()
     .then(programs => res.render('programs/index', {programs}))
     .catch(err => res.render('error', {err}));
@@ -11,13 +13,18 @@ function programsIndex(req, res) {
 function programsShow(req, res) {
   Program
     .findById(req.params.id)
+    .populate('lift')
     .exec()
     .then(program => res.render('programs/show', { program }))
     .catch(err =>  res.render('error', {err}));
 }
 
 function programsNew(req, res) {
-  res.render('programs/new');
+  Lift
+    .find()
+    .exec()
+    .then((lifts) => res.render('programs/new', { lifts }))
+    .catch(err =>  res.render('error', {err}));
 
 }
 
