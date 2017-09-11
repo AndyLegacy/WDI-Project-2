@@ -1,9 +1,27 @@
+<main class="container">
+  <form class="horizontal" method="GET" id="lift-form">
+    <div class="form-group">
+      <select name="lift">
+        <option selected disabled>Lift</option>
+        <% lifts.forEach(lift => { %>
+          <option value="<%= lift.id %>"<% if(lift.id === selectedLiftId) { %> selected <% } %>><%= lift.name %></option>
+        <% }) %>
+      </select>
+    </div>
+    <button class="submit is-primary">Search</button>
+  </form>
 <h1>Program Index</h1>
 
 <% programs.forEach(program => { %>
-  <h2>
-  <a href="/programs/<%= program.id%>"><%= program.name %></a>
-  </h2>
+  <div class="row">
+  <div class="col-9">
+  <h2><a href="/programs/<%= program.id%>"><%= program.name %></a></h2>
   <p><%= program.level %></p>
-  <p><%= program.duration %></p>
+  </div>
+  <div class="col-3">
+  <p><img src="<%= program.image%>"%></p>
+  </div>
+  </div>
 <% }) %>
+
+</main>

@@ -3,13 +3,16 @@ const Lift = require('../models/lift');
 
 function programsIndex(req, res) {
   Program
-    .find()
+    .find(req.query)
     .populate('lift')
     .exec()
-    .then(programs => res.render('programs/index', {programs}))
+    .then(programs => {
+      return Lift.find()
+        .exec()
+        .then(lifts => res.render('programs/index', { programs, lifts, selectedLiftId: req.query.lift }));
+    })
     .catch(err => res.render('error', {err}));
 }
-
 function programsShow(req, res) {
   Program
     .findById(req.params.id)

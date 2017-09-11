@@ -18,17 +18,12 @@
         <input class="input" name="image" type="text" placeholder="Image">
       </div>
     </div>
-    <div class="field">
-      <label class="label">Author</label>
-      <div class="control">
-        <input class="input" name="author" placeholder="author"></input>
-      </div>
-    </div>
+    <%= level %>
     <div class="field">
       <label class="label">Level</label>
       <div class="control">
         <select name="level">
-          <option>Begginner</option>
+          <option>Beginner</option>
           <option>Intermediate</option>
           <option>Advanced</option>
         </select>
@@ -38,7 +33,12 @@
     <div class="field">
       <label class="label">Lift</label>
       <div class="control">
-        <input class="input" name="Lift" placeholder="Lift"></input>
+        <select name="lift">
+          <option>Overall Strength</option>
+          <option>Squat</option>
+          <option>Bench</option>
+          <option>Deadift</option>
+        </select>
       </div>
     </div>
     <div class="control">

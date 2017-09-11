@@ -12,7 +12,6 @@ function sessionsCreate(req,res) {
         req.flash('danger','Invalid credentials');
         return res.redirect('/login');
       }
-    
       req.session.userId = user.id;
       res.redirect('/');
     });
