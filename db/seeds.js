@@ -98,15 +98,7 @@ Lift
 
 
     },{
-      name: 'Candito Linear Programming',
-      frequency: '3 Days pr/week',
-      level: 'Intermediate',
-      lift: [lifts[2]],
-      image: 'http://www.criticalbench.com/images/criticalbench2.jpg'
-
-    },{
-
-      name: 'Candito Linear Programming',
+      name: 'Eillot Hulse Critical Bench',
       frequency: '3 Days pr/week',
       level: 'Intermediate',
       lift: [lifts[2]],

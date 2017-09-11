@@ -15,7 +15,7 @@
         <i class="fa fa-pencil"></i>
       </div>
       <% if (program.user) { %>
-      <p>Added by: <strong><%= program.user.username %></strong></p>
+      <p>Added by: <strong><%= program.user.username%></strong></p>
       <% } %>
       <br>
       <% if(locals.isAuthenticated && program.user && program.user.id === locals.currentUser.id) { %>

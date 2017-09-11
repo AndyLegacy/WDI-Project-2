@@ -22,13 +22,21 @@
     <div class="field">
       <label class="label">Level</label>
       <div class="control">
-        <input class="input" name="level" placeholder="level"></input>
+        <select name="level">
+          <option <% if (program.level === 'Beginner'){%>selected<% } %>>Beginner</option>
+          <option <% if (program.level === 'Intermediate'){%>selected<% } %>>Intermediate</option>
+          <option <% if (program.level === 'Advanced'){%>selected<% } %>>Advanced</option>
+        </select>
       </div>
-      <div class="field">
-        <label class="label">Lift</label>
-        <div class="control">
-          <input class="input" name="Lift" placeholder="Lift"></input>
-        </div>
+    </div>
+    <div class="field">
+      <label class="label">Lift</label>
+      <div class="control">
+        <% lifts.forEach((lift) => { %>
+        <%/* if the program's lifts that exist in the database contains the lift that we're looping through, check the checkbox */%>
+        <%/* JS .some() will return true once it finds one match */%>
+        <input type="checkbox" name="lift" value="<%= lift.id %>" <% if(program.lift.some((_lift) => _lift.id === lift.id)) { %>checked<% } %>><%= lift.name %>
+      <% }) %>
       </div>
     </div>
     <div class="control">

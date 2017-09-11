@@ -4,7 +4,7 @@ const Lift = require('../models/lift');
 function programsIndex(req, res) {
   Program
     .find(req.query)
-    .populate('lift')
+    .populate('lift user')
     .exec()
     .then(programs => {
       return Lift.find()
@@ -16,7 +16,7 @@ function programsIndex(req, res) {
 function programsShow(req, res) {
   Program
     .findById(req.params.id)
-    .populate('lift')
+    .populate('lift user')
     .exec()
     .then(program => res.render('programs/show', { program }))
     .catch(err =>  res.render('error', {err}));
@@ -35,8 +35,14 @@ function programsNew(req, res) {
 function programsEdit(req, res) {
   Program
     .findById(req.params.id)
+    .populate('lift')
     .exec()
-    .then(program => res.render('programs/edit', { program }))
+    .then(program => {
+      return Lift
+        .find()
+        .exec()
+        .then((lifts) => res.render('programs/edit', { program, lifts }));
+    })
     .catch(err => res.render('error', { err }));
 }
 
@@ -66,13 +72,12 @@ function programsDelete(req, res) {
 }
 
 function programsCreate(req, res) {
+
+  req.body.user= req.currentUser;
+
   Program
-    .findById(req.params.id)
-    .then(program => {
-      program.comments.push(req.body);
-      return program.save();
-    })
-    .then(program => res.redirect(`/programs/${program.id}`))
+    .create(req.body)
+    .then(() => res.redirect('/programs'))
     .catch(err => res.render('error', { err }));
 }
 

@@ -18,7 +18,6 @@
         <input class="input" name="image" type="text" placeholder="Image">
       </div>
     </div>
-    <%= level %>
     <div class="field">
       <label class="label">Level</label>
       <div class="control">
@@ -29,16 +28,12 @@
         </select>
       </div>
     </div>
-    <%= lifts %>
     <div class="field">
       <label class="label">Lift</label>
       <div class="control">
-        <select name="lift">
-          <option>Overall Strength</option>
-          <option>Squat</option>
-          <option>Bench</option>
-          <option>Deadift</option>
-        </select>
+        <% lifts.forEach((lift) => { %>
+        <input type="checkbox" name="lift" value="<%= lift.id %>"><%= lift.name %> 
+      <% }) %>
       </div>
     </div>
     <div class="control">
