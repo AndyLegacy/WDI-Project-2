@@ -19,16 +19,6 @@ app.set('views', `${__dirname}/views`);
 app.use(expressLayouts);
 app.use(express.static(`${__dirname}/public`));
 
-app.get('/', (req, res) => res.render('home'));
-
-app.use(session({
-  secret: secret,
-  resave: false,
-  saveUninitialized: false
-}));
-app.use(flash());
-app.use(userAuth);
-
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride((req) => {
   if (req.body && typeof req.body === 'object' && '_method' in req.body) {
@@ -38,6 +28,17 @@ app.use(methodOverride((req) => {
     return method;
   }
 }));
+
+
+app.use(session({
+  secret: secret,
+  resave: false,
+  saveUninitialized: false
+}));
+app.use(flash());
+app.use(userAuth);
+
+
 
 app.use(routes);
 

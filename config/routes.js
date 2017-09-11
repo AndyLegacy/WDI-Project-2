@@ -30,5 +30,6 @@ router.route('/login')
   .get(sessions.new)
   .post(sessions.create);
 
-router.get('/logout', sessions.delete);
+router.route('/logout')
+  .get(sessions.delete);
 module.exports = router;
