@@ -10,7 +10,9 @@
       <h4 class="subtitle"><%= program.level %></h4>
       <% program.lift.forEach((lift) => { %>
         <h5><%= lift.name %></h5>
+        <p><%= program.description %></p>
       <% }) %>
+
       <div class="icon is-small">
         <i class="fa fa-pencil"></i>
       </div>
@@ -25,6 +27,55 @@
         <button class="button is-danger">Delete</button>
       </form>
       <% } %>
+      <form method="POST" action="/programs/<%= program.id %>/comments">
+  <div class="row">
+  <div class="col-6">
+    <label>Comment</label>
+    <textarea name="text" required></textarea>
+  </div>
+<div class="col-6">
+  <div>
+      <label>Post Rating: </label>
+      <label>
+        1<input type="radio" value="1" name="rating">
+      </label>
+      <label>
+        2<input type="radio" value="2" name="rating">
+      </label>
+      <label>
+        3<input type="radio" value="3" name="rating">
+      </label>
+      <label>
+        4<input type="radio" value="4" name="rating">
+      </label>
+      <label>
+        5<input type="radio" value="5" name="rating">
+      </label>
+
+
+  </div>
+  <input type="text" value="<%= locals.currentUser.username %>" name="user" readonly>
+    <button class="addButton">Add</button>
+</div>
+</div>
+</form>
+
+
+<ul>
+<% program.comments.forEach(comment => { %>
+<div class="row">
+<li><%= comment.text %> - <%= comment.rating %>/5
+<p>Added by: <strong><%= comment.user %></strong></p>
+<% if(comment.user === locals.currentUser.username) { %>
+<form method="POST" action="/programs/<%= program.id %>/comments/<%= comment.id %>">
+  <input type="hidden" name="_method" value="DELETE" required>
+    <button>Delete</button>
+</form>
+<% } %>
+</li>
+</div>
+<% }) %>
+</ul>
     </div>
   </div>
 </div>

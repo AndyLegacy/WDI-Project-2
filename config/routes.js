@@ -26,6 +26,11 @@ router.route('/register')
   .get(registrations.new)
   .post(registrations.create);
 
+router.route('/programs/:id/comments')
+  .post(secureRoute, programs.commentsCreate);
+router.route('/programs/:id/comments/:commentId')
+  .delete(secureRoute, programs.commentsDelete);
+
 router.route('/login')
   .get(sessions.new)
   .post(sessions.create);

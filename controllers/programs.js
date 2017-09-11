@@ -81,6 +81,39 @@ function programsCreate(req, res) {
     .catch(err => res.render('error', { err }));
 }
 
+function programsCommentsCreate(req, res) {
+  Program
+    .findById(req.params.id)
+    .populate({
+      path: 'comments',
+      populate: {
+        path: 'user',
+        model: 'User'
+      }
+    })
+    .exec()
+    .then(program => {
+      program.comments.push(req.body);
+      return program.save();
+    })
+    .then(programs => res.redirect(`/programs/${programs.id}`))
+    .catch(err => res.render('error', {err}));
+}
+
+
+function programsCommentsDelete(req, res) {
+  Program
+    .findById(req.params.id)
+    .exec()
+    .then(programs => {
+      const comment = programs.comments.id(req.params.commentId);
+      comment.remove();
+      return programs.save();
+    })
+    .then(programs => res.redirect(`/programs/${programs.id}`))
+    .catch(err => res.render('error', {err}));
+}
+
 
 module.exports = {
   index: programsIndex,
@@ -89,5 +122,7 @@ module.exports = {
   create: programsCreate,
   edit: programsEdit,
   delete: programsDelete,
-  update: programsUpdate
+  update: programsUpdate,
+  commentsCreate: programsCommentsCreate,
+  commentsDelete: programsCommentsDelete
 };

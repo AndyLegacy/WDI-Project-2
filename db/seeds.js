@@ -30,8 +30,8 @@ Lift
       frequency: '3 Days pr/week',
       level: 'Beginnner',
       lift: [lifts[0]],
-      image: 'http://www.sethroselife.com/wp-content/uploads/2014/05/ss2.jpeg'
-
+      image: 'http://www.sethroselife.com/wp-content/uploads/2014/05/ss2.jpeg',
+      description: 'Lifters add a fixed amount of weight to each exercise every training session. Typically, 5lbs on the squat, 10lbs on the deadlift, and 2.5lbs on the upperbody lifts and power cleans. This is an overload method known as linear progression.'
     },{
 
       name: 'Stronglifts 5X5',
