@@ -1,29 +1,32 @@
-<form method="POST" action="/register">
-  <div class="field">
-    <label class="label">Username</label>
-    <div class="control">
-      <input class="input" name="username" type="text" placeholder="Username" required>
+<div id="newForm"class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <form method="POST" action="/programs">
+
+        <div class="form-group">
+          <label class="label"></label>
+          <input name="name" type="text" placeholder="Username" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label class="label"></label>
+          <input name="origin" type="text" placeholder="email" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label class="label"></label>
+          <input name="password" type="password" placeholder="Password" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+          <label class="label"></label>
+            <input  name="passwordConfirmation" type="password" placeholder="Confirm Password" class="form-control" required>
+        </div>
+        <div class="control">
+          <button type="submit"class="btn btn-success btn-full">Register</button>
+        </div>
+
+      </form>
     </div>
   </div>
-  <div class="field">
-    <label class="label">Email</label>
-    <div class="control">
-      <input class="input" name="email" type="text" placeholder="Email" required>
-    </div>
-  </div>
-  <div class="field">
-    <label class="label">Password</label>
-    <div class="control">
-      <input class="input" name="password" type="password" placeholder="Password" required>
-    </div>
-  </div>
-  <div class="field">
-    <label class="label">Confirm Password</label>
-    <div class="control">
-      <input class="input" name="passwordConfirmation" type="password" placeholder="Confirm Password" required>
-    </div>
-  </div>
-  <div class="control">
-    <button class="button is-primary">Register</button>
-  </div>
-</form>
+</div>

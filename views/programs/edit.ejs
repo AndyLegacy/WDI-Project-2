@@ -1,51 +1,62 @@
-<div class="container">
-  <form method="POST" action="/programs/<%= program.id %>">
-    <input type="hidden" name="_method" value="PUT">
-    <div class="field">
-      <label class="label">Name</label>
-      <div class="control">
-        <input class="input" name="name" type="text" placeholder="Name" value="<%= program.name %>">
+<div id="editForm"class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <form method="POST" action="/programs/<%= program.id %>">
+
+        <input type="hidden" name="_method" value="PUT">
+
+        <div class="form-group">
+          <label class="label"></label>
+          <div class="control">
+            <input class="form-control" name="name" type="text" placeholder="Name" value="<%= program.name %>">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="label"></label>
+          <div class="control">
+            <input class="form-control" name="origin" type="text" placeholder="Frequency" value="<%= program.origin %>">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="label"></label>
+          <div class="control">
+            <input class="form-control" name="image" type="text" placeholder="Image" value="<%= program.image %>">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="label"></label>
+          <div class="control">
+            <select name="level" class="form-control">
+              <option <% if (program.level === 'Beginner'){%>selected<% } %>>Beginner</option>
+              <option <% if (program.level === 'Intermediate'){%>selected<% } %>>Intermediate</option>
+              <option <% if (program.level === 'Advanced'){%>selected<% } %>>Advanced</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="control">
+            <% lifts.forEach((lift) => { %>
+              <%/* if the program's lifts that exist in the database contains the lift that we're looping through, check the checkbox */%>
+              <%/* JS .some() will return true once it finds one match */%>
+              <input type="checkbox" name="lift" value="<%= lift.id %>" <% if(program.lift.some((_lift) => _lift.id === lift.id)) { %>checked<% } %>><%= lift.name %>
+              <% }) %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="label"></label>
+            <div>
+              <input class="form-control" name="description" type="text" placeholder="description" value="<%= program.description %>">
+            </div>
+          </div>
+
+            <div class="control">
+              <button type="button"class="btn btn-success btn-full">Submit</button>
+            </div>
+
+          </form>
+
       </div>
     </div>
-    <div class="field">
-      <label class="label">Frequency</label>
-      <div class="control">
-        <input class="input" name="origin" type="text" placeholder="Frequency" value="<%= program.origin %>">
-      </div>
-    </div>
-    <div class="field">
-      <label class="label">Image</label>
-      <div class="control">
-        <input class="input" name="image" type="text" placeholder="Image" value="<%= program.image %>">
-      </div>
-    </div>
-    <div class="field">
-      <label class="label">Level</label>
-      <div class="control">
-        <select name="level">
-          <option <% if (program.level === 'Beginner'){%>selected<% } %>>Beginner</option>
-          <option <% if (program.level === 'Intermediate'){%>selected<% } %>>Intermediate</option>
-          <option <% if (program.level === 'Advanced'){%>selected<% } %>>Advanced</option>
-        </select>
-      </div>
-    </div>
-    <div class="field">
-      <label class="label">Lift</label>
-      <div class="control">
-        <% lifts.forEach((lift) => { %>
-        <%/* if the program's lifts that exist in the database contains the lift that we're looping through, check the checkbox */%>
-        <%/* JS .some() will return true once it finds one match */%>
-        <input type="checkbox" name="lift" value="<%= lift.id %>" <% if(program.lift.some((_lift) => _lift.id === lift.id)) { %>checked<% } %>><%= lift.name %>
-      <% }) %>
-      </div>
-    </div>
-    <div class="field">
-      <label class="label">Description</label>
-      <div class="control">
-        <input class="input" name="description" type="text" placeholder="description" value="<%= program.description %>">
-      </div>
-    <div class="control">
-      <button type="button"class="btn btn-success">Submit</button>
-    </div>
-  </form>
-</div>
+  </div>

@@ -18,6 +18,9 @@ img {
   left: 0;
   min-width: 100%;
   min-height: 100%;
+  background-image: url("http://muscleandbrawn.com/wp-content/uploads/2013/09/powerlifting-workout.jpg");
+  background-size: cover;
+  background-position: right;
 }
 
 
@@ -57,7 +60,7 @@ img {
 #liftDropbtn {
   float: right;
   margin-top: 2px;
-  margin-right: 90px;
+  margin-right: 75px;
   border-radius: 2px;
   background-color: #grey;
 }
@@ -78,8 +81,6 @@ img {
 
 .showProgram {
   margin-top: 14px;
-  height: 420px;
-  width: 450px;
 }
 
 .subtitleShow {
@@ -105,4 +106,30 @@ margin-top: 30px;
 .commentBox {
   width: 450px;
   margin-bottom: 4px;
+}
+
+#newForm {
+  margin-top: 40px;
+  border-radius: 4px;
+
+}
+
+.btn-full {
+  width: 100%;
+}
+
+.input {
+  width: 450px;
+}
+
+#newProgramBtn {
+  margin-left: 18px;
+  margin-top: 20px;
+  width: 420px;
+}
+
+#editForm {
+  margin-top: 40px;
+  border-radius: 4px;
+
 }
