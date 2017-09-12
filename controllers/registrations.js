@@ -12,6 +12,7 @@ function registrationsCreate(req, res) {
       return res.redirect('/login');
     })
     .catch((err) => {
+      console.log('err');
       if (err.name === 'ValidationError') {
         return res.status(400).render('registrations/new', { message: 'Passwords do not match' });
       }
