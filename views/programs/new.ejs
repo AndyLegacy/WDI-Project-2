@@ -1,23 +1,27 @@
 <div class="container">
   <form method="POST" action="/programs">
+
     <div class="field">
       <label class="label">Name</label>
       <div class="control">
         <input class="input" name="name" type="text" placeholder="Name">
       </div>
     </div>
+
     <div class="field">
       <label class="label">Frequency</label>
       <div class="control">
         <input class="input" name="origin" type="text" placeholder="frequency">
       </div>
     </div>
+
     <div class="field">
       <label class="label">Image</label>
       <div class="control">
         <input class="input" name="image" type="text" placeholder="Image">
       </div>
     </div>
+
     <div class="field">
       <label class="label">Level</label>
       <div class="control">
@@ -28,16 +32,25 @@
         </select>
       </div>
     </div>
+
     <div class="field">
       <label class="label">Lift</label>
       <div class="control">
         <% lifts.forEach((lift) => { %>
-        <input type="checkbox" name="lift" value="<%= lift.id %>"><%= lift.name %> 
+        <input type="checkbox" name="lift" value="<%= lift.id %>"><%= lift.name %>
       <% }) %>
       </div>
     </div>
+
+    <div class="field">
+      <label class="label">Description</label>
+      <div class="control">
+        <input class="input" name="description" type="text" placeholder="description">
+      </div>
     <div class="control">
       <button class="button is-primary">Submit</button>
     </div>
+  </div>
+  
   </form>
 </div>

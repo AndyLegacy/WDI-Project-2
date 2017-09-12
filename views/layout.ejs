@@ -31,6 +31,9 @@
       </nav>
     </head>
     <body>
+      <% for (const type in messages) { %>
+  <p class="danger-<%= type %>"><%= messages[type] %></p>
+<% } %>
       <%- body %>
     </body>
     </html>

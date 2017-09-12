@@ -100,7 +100,6 @@ function programsCommentsCreate(req, res) {
     .catch(err => res.render('error', {err}));
 }
 
-
 function programsCommentsDelete(req, res) {
   Program
     .findById(req.params.id)

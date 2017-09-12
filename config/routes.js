@@ -15,7 +15,7 @@ router.route('/programs/new')
   .get(secureRoute, programs.new);
 
 router.route('/programs/:id')
-  .get(programs.show)
+  .get(secureRoute, programs.show)
   .put(secureRoute, programs.update)
   .delete(secureRoute, programs.delete);
 

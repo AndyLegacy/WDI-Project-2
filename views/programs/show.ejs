@@ -1,81 +1,93 @@
 <div class="container">
+
   <div class="columns">
+
     <div class="column">
       <figure class="image">
         <img src="<%= program.image %>" alt="<%= program.name %>">
       </figure>
     </div>
+
     <div class="column">
       <h3 class="title"><%= program.name %></h3>
       <h4 class="subtitle"><%= program.level %></h4>
       <% program.lift.forEach((lift) => { %>
         <h5><%= lift.name %></h5>
-        <p><%= program.description %></p>
-      <% }) %>
+        <% }) %>
 
-      <div class="icon is-small">
-        <i class="fa fa-pencil"></i>
-      </div>
-      <% if (program.user) { %>
-      <p>Added by: <strong><%= program.user.username%></strong></p>
-      <% } %>
-      <br>
-      <% if(locals.isAuthenticated && program.user && program.user.id === locals.currentUser.id) { %>
-      <form method="POST" action="/programs/<%= program.id %>">
-        <input type="hidden" name="_method" value="DELETE">
-        <a class="button is-primary" href="/programs/<%= program.id %>/edit">Edit</a>
-        <button class="button is-danger">Delete</button>
-      </form>
-      <% } %>
-      <form method="POST" action="/programs/<%= program.id %>/comments">
-  <div class="row">
-  <div class="col-6">
-    <label>Comment</label>
-    <textarea name="text" required></textarea>
-  </div>
-<div class="col-6">
-  <div>
-      <label>Post Rating: </label>
-      <label>
-        1<input type="radio" value="1" name="rating">
-      </label>
-      <label>
-        2<input type="radio" value="2" name="rating">
-      </label>
-      <label>
-        3<input type="radio" value="3" name="rating">
-      </label>
-      <label>
-        4<input type="radio" value="4" name="rating">
-      </label>
-      <label>
-        5<input type="radio" value="5" name="rating">
-      </label>
+        <div class="icon is-small">
+          <p><%= program.description %></p>
+        </div>
+        <% if (program.user) { %>
+          <p>Added by: <strong><%= program.user.username%></strong></p>
+          <% } %>
+          <br>
+          <% if(locals.isAuthenticated && program.user && program.user.id === locals.currentUser.id) { %>
+            <form method="POST" action="/programs/<%= program.id %>">
+            <input type="hidden" name="_method" value="DELETE">
+            <a class="button is-primary" href="/programs/<%= program.id %>/edit">Edit</a>
+            <button class="button is-danger">Delete</button>
+            </form>
+            <% } %>
 
 
-  </div>
-  <input type="text" value="<%= locals.currentUser.username %>" name="user" readonly>
-    <button class="addButton">Add</button>
-</div>
-</div>
-</form>
+            <div class="row">
+
+              <form method="POST" action="/programs/<%= program.id %>/comments">
+                <div class="col-6">
+                  <label>Comment</label>
+                  <textarea name="text" required></textarea>
+                </div>
+
+                <div class="col-6">
+
+                  <div>
+                    <label>Post Rating: </label>
+                    <label>
+                      1<input type="radio" value="1" name="rating">
+                    </label>
+                    <label>
+                      2<input type="radio" value="2" name="rating">
+                    </label>
+                    <label>
+                      3<input type="radio" value="3" name="rating">
+                    </label>
+                    <label>
+                      4<input type="radio" value="4" name="rating">
+                    </label>
+                    <label>
+                      5<input type="radio" value="5" name="rating">
+                    </label>
 
 
-<ul>
-<% program.comments.forEach(comment => { %>
-<div class="row">
-<li><%= comment.text %> - <%= comment.rating %>/5
-<p>Added by: <strong><%= comment.user %></strong></p>
-<% if(comment.user === locals.currentUser.username) { %>
-<form method="POST" action="/programs/<%= program.id %>/comments/<%= comment.id %>">
-  <input type="hidden" name="_method" value="DELETE" required>
-    <button>Delete</button>
-</form>
-<% } %>
-</li>
-</div>
-<% }) %>
-</ul>
-    </div>
-  </div>
-</div>
+                    <div>
+                      <input type="text" value="<%= locals.currentUser.username %>" name="user" readonly>
+                      <button class="addButton">Add</button>
+                    </div>
+
+                  </div>
+                </div>
+              </form>
+
+
+              <ul>
+              <% program.comments.forEach(comment => { %>
+                <div class="row">
+                <li><%= comment.text %> - <%= comment.rating %>/5
+                <p>Added by: <strong><%= comment.user %></strong></p>
+                <% if(comment.user === locals.currentUser.username) { %>
+                  <form method="POST" action="/programs/<%= program.id %>/comments/<%= comment.id %>">
+                  <input type="hidden" name="_method" value="DELETE" required>
+                  <button>Delete</button>
+                  </form>
+                  <% } %>
+                  </li>
+                  </div>
+                  <% }) %>
+                </ul>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
