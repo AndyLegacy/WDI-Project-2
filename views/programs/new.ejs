@@ -1,4 +1,6 @@
 <div class="container">
+  <div class="row">
+    <div class="col-6">
   <form method="POST" action="/programs">
 
     <div class="field">
@@ -34,23 +36,24 @@
     </div>
 
     <div class="field">
-      <label class="label">Lift</label>
+      <label class="label"></label>
       <div class="control">
         <% lifts.forEach((lift) => { %>
-        <input type="checkbox" name="lift" value="<%= lift.id %>"><%= lift.name %>
-      <% }) %>
+          <input type="checkbox" name="lift" value="<%= lift.id %>"><%= lift.name %>
+          <% }) %>
+        </div>
       </div>
-    </div>
 
-    <div class="field">
-      <label class="label">Description</label>
-      <div class="control">
-        <input class="input" name="description" type="text" placeholder="description">
+      <div class="description">
+        <label class="label"></label>
+        <div class="control">
+          <input class="input" name="description" type="text" placeholder="description">
+        </div>
+        <div class="control">
+          <button type="Submit" class="btn btn-success">Submit</button>
+        </div>
       </div>
-    <div class="control">
-      <button class="button is-primary">Submit</button>
     </div>
   </div>
-  
-  </form>
+</form>
 </div>

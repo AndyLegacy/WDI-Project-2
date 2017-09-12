@@ -1,15 +1,108 @@
 body {
-  color: tomato;
+  color: black;
 }
+
 
 img {
   max-width: 100%;
 }
 
 .container {
-  max-width: 1000px;
+  margin: 0 auto;
+
 }
 
-.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-color: #000;
+#homeImg {
+  position: fixed;
+  top: 20;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+
+#mainNav {
+  background-color: #3e3b3a;
+  color: white;
+}
+
+.navbar-dark a {
+  color: white;
+}
+
+.navbarLogin {
+  padding: 0;
+  padding-right: 10px;
+  display: flex;
+  position: fixed;
+  right: 0;
+
+}
+.navbarRight {
+  justify-content: flex-end;
+  border:2px solid white;
+  border-top: none;
+  border-bottom: none;
+  margin: 0 5px;
+}
+.navbarColor {
+  padding: 0;
+}
+
+.liftDrop {
+  margin-left:  800px;
+  margin-top: 8px;
+}
+
+#liftDropbtn {
+  float: right;
+  margin-top: 2px;
+  margin-right: 90px;
+  border-radius: 2px;
+  background-color: #grey;
+}
+
+
+.programIndex {
+  margin-bottom: 40px;
+}
+
+
+.indexImages {
+  margin: 30px;
+}
+
+.indexName {
+  margin-top: 40px;
+}
+
+.showProgram {
+  margin-top: 14px;
+  height: 420px;
+  width: 450px;
+}
+
+.subtitleShow {
+  margin-top: 40px;
+}
+
+#commentsPost {
+margin-left:0px;
+margin-top: 30px;
+
+}
+
+.commentShow {
+  margin-left: 200px;
+}
+
+
+.userComment {
+  text-align: center;
+  border: none;
+}
+
+.commentBox {
+  width: 450px;
+  margin-bottom: 4px;
 }

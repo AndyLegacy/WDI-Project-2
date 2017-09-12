@@ -1,0 +1,30 @@
+<nav class="navbar navbar-toggleable-md navbar-dark bg-faded" id="mainNav">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="/">The Lifting Lab</a>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ulnav" id="ulNav">
+      <li class="nav-item active">
+        <li><a class="nav-link navbarColor" href="/programs">All Programs<span class="sr-only"></span></a></li>
+        <% if(!locals.isAuthenticated) { %>
+          <div class="navbarLogin">
+          <div class='navbarRight'>
+          <li><a class="nav-link navbarColor" href="/login">Login</a></li>
+          </div>
+          <div class='navbarRight'>
+          <li><a class="nav-link navbarColor" href="/register">Register</a></li>
+          </div>
+          </div>
+          <% } else { %>
+            <li><a class="nav-link navbarColor" href="/programs/new">Add a Program<span class="sr-only"></span></a></li>
+            <div class="navbarLogin">
+            <div class='navbarRight'>
+            <li><a class="nav-link navbarColor" href="/logout">Logout</a></li>
+            </div>
+            </div>
+            <% } %>
+          </li>
+        </ul>
+      </div>
+    </nav>
