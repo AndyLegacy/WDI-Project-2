@@ -1,16 +1,16 @@
 <div id="newForm"class="container">
   <div class="row">
     <div class="col-md-6 offset-md-3">
-      <form method="POST" action="/programs">
+      <form method="POST" action="/register">
 
         <div class="form-group">
           <label class="label"></label>
-          <input name="name" type="text" placeholder="Username" class="form-control">
+          <input name="username" type="text" placeholder="Username" class="form-control" required>
         </div>
 
         <div class="form-group">
           <label class="label"></label>
-          <input name="email" type="text" placeholder="email" class="form-control">
+          <input name="email" type="text" placeholder="email" class="form-control" required>
         </div>
 
         <div class="form-group">
@@ -20,7 +20,7 @@
 
         <div class="form-group">
           <label class="label"></label>
-            <input  name="passwordConfirmation" type="password" placeholder="Confirm Password" class="form-control" required>
+          <input name="passwordConfirmation" type="password" placeholder="Confirm Password" class="form-control" required>
         </div>
         <div class="control">
           <button type="submit"class="btn btn-success btn-full">Register</button>

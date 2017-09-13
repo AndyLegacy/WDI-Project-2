@@ -4,7 +4,6 @@ mongoose.Promise = require('bluebird');
 const { dbURI } = require('../config/environment');
 mongoose.connect(dbURI, { useMongoClient: true });
 
-
 const Program = require('../models/program');
 const Lift = require('../models/lift');
 
@@ -91,7 +90,8 @@ Lift
       frequency: '3 Days pr/week',
       level: 'Advanced',
       lift: [lifts[3]],
-      image: 'http://www.powerliftingtowin.com/wp-content/uploads/2014/02/ed-coan-sumo.jpg'
+      image: 'http://www.powerliftingtowin.com/wp-content/uploads/2014/02/ed-coan-sumo.jpg',
+      description: 'Ed Coan’s Deadlift Routine is a total of 10 weeks, and you will be Deadlifting once a week. You will want to run this routine alongside your current routine for the other lifts. Each workout consists of heavy deadlifts, speed deadlifts, and various lower back assistance work. Before starting the routine you will need to know your current 1RM (1 rep max), and your desired 1RM. Your desired max can be anywhere between 20-40 Lb above your current max, the average is about 30 Lb. All Deadlift work set percentages will be based off your desired max.'
 
     },{
 
@@ -99,7 +99,8 @@ Lift
       frequency: '3 Days pr/week',
       level: 'Intermediate',
       lift: [lifts[0]],
-      image: 'https://yt3.ggpht.com/-22040rYInYs/AAAAAAAAAAI/AAAAAAAAAAA/jvPYSbuI5ps/s900-c-k-no-mo-rj-c0xffffff/photo.jpg'
+      image: 'https://yt3.ggpht.com/-22040rYInYs/AAAAAAAAAAI/AAAAAAAAAAA/jvPYSbuI5ps/s900-c-k-no-mo-rj-c0xffffff/photo.jpg',
+      description: 'Unlike Starting Strength or StrongLifts which has you doing the same workout with 3×5/5×5 every single time, using those ranges to both get stronger AND improve technique simultaneously, the “control” days on Candito’s program are explicitly aimed at technical improvement and the “heavy” days are explicitly aimed at maximal strength improvement.'
 
 
     },{
@@ -107,7 +108,8 @@ Lift
       frequency: '3 Days pr/week',
       level: 'Intermediate',
       lift: [lifts[2]],
-      image: 'http://www.criticalbench.com/images/criticalbench2.jpg'
+      image: 'http://www.criticalbench.com/images/criticalbench2.jpg',
+      description: 'The Lean Hybrid Muscle system takes advantage of Type III fibers through a style of training the authors refer to as Hybrid Cardio. They have spent years experimenting with the variables of this training technique, and have discovered the absolute best parameters to follow for supercharged results. By combining several traditional styles of training into one workout session, the authors discovered a synergistic effect took place that simultaneously allowed trainees to add lean muscle mass and burn off stubborn fat. The hybrid cardio workouts are different from anything you may have seen before, and were designed and tweaked to elicit the hormonal responses necessary for rapid physique transformation.'
 
     },{
 
@@ -115,7 +117,8 @@ Lift
       frequency: '4 Days pr/week',
       level: 'Advanced',
       lift: [lifts[1]],
-      image: 'https://i.ytimg.com/vi/SWOm-1mIE6A/maxresdefault.jpg'
+      image: 'https://i.ytimg.com/vi/SWOm-1mIE6A/maxresdefault.jpg',
+      description: 'You are to employ a “daily max” that involves no assistive gear, no loud music, no stimulants and no psyching-up. This “daily max” is a weight that you can hit that day with zero grinding. The lifts, if not fast, must be smooth. Using Tuchscherer’s RPE scale, you shouldn’t be surpassing RPE 9.5 (maybe one rep left in the tank). The point here is to minimize the psychological and neurological stress of each workout as much as possible. In Squat Every Day, Perryman makes a compelling argument that, in many cases, the psychological stress of a workout contributes as much, if not more, to recovery debt than the actual workload of the physical activity itself.'
 
     }]);
   })
