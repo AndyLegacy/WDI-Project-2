@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-6">
       <figure class="image">
-        <img class="showProgram"src="<%= program.image %>" alt="<%= program.name %>">
+        <img class="showProgram"src="<%= program.image %>" alt="<%= program.name %>"/>
       </figure>
     </div>
 
@@ -69,22 +69,23 @@
 
           </form>
 
-
-          <ul class="commentShow">
-            <% program.comments.forEach(comment => { %>
-              <div class="row">
-              <li><%= comment.text %> - <%= comment.rating %>/5
-              <p>Added by: <strong><%= comment.user %></strong></p>
-              <% if(comment.user === locals.currentUser.username) { %>
-                <form method="POST" action="/programs/<%= program.id %>/comments/<%= comment.id %>">
-                <input type="hidden" name="_method" value="DELETE" required>
-                <button class="btn btn-danger"> Delete</button>
-                </form>
-                <% } %>
-                </li>
-                </div>
-                <% }) %>
-              </ul>
+          <div class="media">
+            <ul class="commentShow">
+              <% program.comments.forEach(comment => { %>
+                <div class="media-body">
+                <li><%= comment.text %> - <%= comment.rating %>/5
+                <p>Added by: <strong><%= comment.user %></strong></p>
+                <% if(comment.user === locals.currentUser.username) { %>
+                  <form method="POST" action="/programs/<%= program.id %>/comments/<%= comment.id %>">
+                  <input type="hidden" name="_method" value="DELETE" required>
+                  <button class="btn btn-danger"> Delete</button>
+                  </form>
+                  <% } %>
+                  </li>
+                  </div>
+                  <% }) %>
+                </ul>
+              </div>
 
             </div>
           </div>
